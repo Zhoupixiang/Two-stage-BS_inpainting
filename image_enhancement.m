@@ -47,12 +47,12 @@ imshow(im7);
 % imwrite(im7,'bonescan_enhance.jpg');
 title('8:图7进行幂率变换后的最终图像');
 %%修改像素值
-
+%%可以根据骨扫描图像的性质进行改变
 [a,b]=size(im7);
    for i=1:a
        for j=1:b
-         if im7(i,j)<=0.05
-             im7(i,j)=0;
+         if im7(i,j)<=(一定的阈值)%这里可以选择自适应算法选择最适合韦伯定律的阈值
+             im7(i,j)=抑制函数(不相关的像素点需要进行抑制);
          end
        end
    end
